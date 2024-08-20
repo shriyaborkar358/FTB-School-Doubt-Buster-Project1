@@ -29,3 +29,22 @@ const createStudent = async (req,res) => {
     })
    }
 } 
+const getAllStudents = async (req,res) =>{
+    try{
+        const allStudent = await Student.find();
+    res.status(200).json({
+        success:true,
+        message:'all students are retrieved successfully',
+        data:allStudent
+    })
+    }
+    catch(e){
+        res.json({
+            success:false,
+            message:'students not retrieved',
+            data:e.message
+        })
+    }
+
+}
+export {createStudent}
