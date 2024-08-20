@@ -4,7 +4,6 @@ import bcrypt from 'bcrypt'
 const Signup = async (req, res) => {
     const { fullName, email, password, role } = req.body
     const EncryptPass = await bcrypt.hash(password,10);
-
     const user = await User.create({
         fullName,
         email,
@@ -27,7 +26,6 @@ const Signup = async (req, res) => {
             error: e.message
             })
     }
-     
         }
 
 
