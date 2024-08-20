@@ -1,5 +1,6 @@
 import User from './../models/User.js'
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 const Login = async (req, res) => {
     try {
@@ -10,8 +11,8 @@ const Login = async (req, res) => {
         }
             const isValidPassword = await bcrypt.compare(password, user.password)
             if (isValidPassword) {
-                // const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY,
-                //     { expiresIn: '1h' })
+                const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY,
+                    { expiresIn: '1h' })
                 res.json({
                     success: true,
                     message: 'Logged in successfully',
