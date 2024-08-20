@@ -7,13 +7,13 @@ const classSchema = new Schema({
   },
   teacher: {
     type: Schema.Types.ObjectId,
-    ref: "Teacher",
+    ref: 'Teacher',
     required: true,
   },
   students: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Student",
+      ref: 'Student',
       required: true,
     }
   ],
