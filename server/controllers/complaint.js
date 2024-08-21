@@ -52,4 +52,21 @@ const getComplaints = async (req, res) => {
     }
 }
 
-export { postComplaint ,getComplaints}
+const getComplaintById = async (req, res) => {
+    try {
+        const complaint = await Complaint.findById(req.params.id);
+        res.status(200).json({
+            success: true,
+            complaint
+        });
+    }
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error fetching complaint",
+            error: error.message
+        })
+    }
+}
+export { postComplaint ,getComplaints, getComplaintById}
+
