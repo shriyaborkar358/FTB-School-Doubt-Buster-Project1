@@ -34,10 +34,13 @@ app.get('/health', (req, res) => {
 
 app.post("/login",Login)
 app.post("/signup",Signup)
+
 app.post("/createstudent",createStudent)
 app.get("/getAllStudents",getAllStudents)
 app.get("/getStudentById",getStudentById)
+
 app.post('/complaint', postComplaint)
+app.get('/complaintsbyid/:id', getComplaintById)
 
 
 
