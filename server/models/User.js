@@ -23,7 +23,11 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
+<<<<<<< HEAD
+    enum:['student','teacher','parent','admin'],
+=======
     enum: ['student', 'teacher', 'parent', 'admin'],
+>>>>>>> 121b2864bf6696fbc87849f696a226bcae1eed92
     default: 'student',
   },
 }, {
