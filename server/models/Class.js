@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 import { Schema, model } from 'mongoose';
 
 const classSchema = new Schema({
@@ -26,4 +25,3 @@ const classSchema = new Schema({
 const Class = model('Class', classSchema);
 
 export default Class;
->>>>>>> 121b2864bf6696fbc87849f696a226bcae1eed92
