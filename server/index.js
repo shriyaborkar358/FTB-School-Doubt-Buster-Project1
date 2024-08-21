@@ -1,15 +1,9 @@
 import express from "express";
 import cors from "cors";
-<<<<<<< HEAD
 import mongoose from "mongoose"
 import dotenv from "dotenv"
 import Signup from "./controllers/Signup.js";
 import Login from "./controllers/Login.js";
-
-=======
-import mongoose from "mongoose";
-import dotenv from "dotenv";
->>>>>>> 121b2864bf6696fbc87849f696a226bcae1eed92
 dotenv.config();
 const app = express()
 app.use(express.json())

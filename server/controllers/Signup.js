@@ -2,11 +2,13 @@ import User from './../models/User.js'
 import bcrypt from 'bcrypt'
 
 const Signup = async (req, res) => {
-    const { fullName, email, password, role } = req.body
+    const { fullName, email, password,mobile,address, role } = req.body
     const EncryptPass = await bcrypt.hash(password,10);
     const user = await User.create({
         fullName,
         email,
+        mobile,
+        address,
         password:EncryptPass,
         role
     })
