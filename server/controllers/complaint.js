@@ -35,4 +35,21 @@ const postComplaint = async (req, res) => {
     }
 };
 
-export { postComplaint }
+const getComplaints = async (req, res) => {
+    try {
+        const complaints = await Complaint.find();
+        res.status(200).json({
+            success: true,
+            message: "Complaints fetched successfully",
+            complaints
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error fetching complaints",
+            error: error.message
+        });
+    }
+}
+
+export { postComplaint ,getComplaints}
