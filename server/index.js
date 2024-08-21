@@ -6,6 +6,9 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 
+import {createStudent, getAllStudents, getStudentById} from "./controllers/student.js";
+import { postComplaint } from "./controllers/complaint.js";  
+
 const app = express()
 app.use(express.json())
 app.use(cors())
@@ -31,6 +34,12 @@ app.get('/health', (req, res) => {
 
 app.post("/login",Login)
 app.post("/signup",Signup)
+app.post("/createstudent",createStudent)
+app.get("/getAllStudents",getAllStudents)
+app.get("/getStudentById",getStudentById)
+app.post('/complaint', postComplaint)
+
+
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
