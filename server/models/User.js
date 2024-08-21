@@ -17,7 +17,7 @@ const userSchema = new Schema({
   role: {
     type: String,
     enum:['student','teacher','parent','admin'],
-    default: student,
+    default: 'student',
   },
 }, {
   timestamps: true,
