@@ -6,8 +6,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 
-import {createStudent, getAllStudents, getStudentById} from "./controllers/Student.js";
-import { postComplaint,getComplaintById } from "./controllers/Complaint.js";  
+import {createStudent, getAllStudents, getStudentById} from "./controllers/student.js";
+import { postComplaint,getComplaintById } from "./controllers/complaint.js";  
 
 const app = express()
 app.use(express.json())
