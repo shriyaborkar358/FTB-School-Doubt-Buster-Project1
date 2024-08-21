@@ -19,7 +19,6 @@ const Login = async (req, res) => {
                     token: token
                 })
             }
-        
     } catch (err) {
         console.log(err)
     }

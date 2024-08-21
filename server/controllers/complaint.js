@@ -68,5 +68,40 @@ const getComplaintById = async (req, res) => {
         })
     }
 }
-export { postComplaint ,getComplaints, getComplaintById}
+
+const updateComplaint = async (req, res) => {
+    try {
+        const complaint = await Complaint.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.status(200).json({
+            success: true,
+            message: "Complaint updated successfully",
+            complaint
+        });
+    }
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error updating complaint",
+            error: error.message
+        })
+    }
+}
+
+const deleteComplaint = async (req, res) => {
+    try {
+        await Complaint.findByIdAndDelete(req.params.id);
+        res.status(200).json({
+            success: true,
+            message: "Complaint deleted successfully"
+        });
+    }
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error deleting complaint",
+            error: error.message
+        })
+    }
+}
+export { postComplaint ,getComplaints, getComplaintById, updateComplaint, deleteComplaint}
 
