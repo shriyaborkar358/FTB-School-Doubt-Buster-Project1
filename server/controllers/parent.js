@@ -94,6 +94,16 @@ const putParent = async (req, res) => {
         });
     }
 };
+const delParent = async (req, res) => {
+    const { id } = req.params;
 
+    const delParent = await Parent.deleteOne({ _id: id });
 
-export { postParent, getAllParent, getParentById, putParent};
+    res.json({
+        success: true,
+        message: "Parent deleted successfuly ",
+        data: null,
+    });
+};
+
+export { postParent, getAllParent, getParentById, putParent, delParent };
