@@ -64,5 +64,36 @@ const getParentById = async (req, res) => {
     }
 };
 
+const putParent = async (req, res) => {
+    const { id } = req.params;
+    const { user, student } = req.body;
 
-export { postParent, getAllParent, getParentById};
+    const updateResult = await Parent.updateOne(
+        { _id: id },
+        {
+            $set: {
+                user,
+                student,
+            },
+        }
+    );
+
+    try {
+        const updateParent = await Parent.findById(id);
+
+        res.status(200).json({
+            success: true,
+            message: "Prent Updated successfully",
+            data: updateParent,
+        });
+    } catch (e) {
+        res.status(404).json({
+            success: true,
+            message: e.message,
+            data: null,
+        });
+    }
+};
+
+
+export { postParent, getAllParent, getParentById, putParent};
