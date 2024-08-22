@@ -7,7 +7,16 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import {createStudent, getAllStudents, getStudentById} from "./controllers/student.js";
-import { postComplaint,getComplaintById,getComplaints,updateComplaint ,deleteComplaint,getComplaintsByUser,getComplaintsByParent} from "./controllers/complaint.js";  
+
+import{ postComplaint,
+    getComplaintById,
+    getComplaints,
+    updateComplaint ,
+    deleteComplaint,
+    getComplaintsByUser,
+    getComplaintsByParent,
+    getComplaintsByClass} from "./controllers/complaint.js";  
+
 import { getClassbyId, postClass } from "./controllers/class.js";
 
 
@@ -47,7 +56,8 @@ app.get('/complaints',getComplaints)
 app.put('/updatecomplaint/:id', updateComplaint)
 app.delete('/deletecomplaint/:id', deleteComplaint)
 app.get('/complaintsbyuser/:id', getComplaintsByUser)
-app.get('/complaintbyparent/:id', getComplaintsByParent)
+app.get('/complaintbyparent/:id',getComplaintsByParent)
+app.get('/complaintsbyclass/:id', getComplaintsByClass)
 
 
 app.post('/createClass',postClass)

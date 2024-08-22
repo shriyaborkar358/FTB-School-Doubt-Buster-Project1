@@ -6,6 +6,7 @@ import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import SignUp from './../src/views/Signup/Signup'
 import Login from './../src/views/Login/Login'
 import StudentDetailsForm from './views/StudentForm/StudentForm';
+import Dashboard from './views/Dashboard/Dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   //   path: "/about",
   //   element: <AboutUs/>
   // },
+  {
+    path: "/dashboard",
+    element: <Dashboard/>
+  },
   {
     path:"/student-details",
     element:<StudentDetailsForm/>
