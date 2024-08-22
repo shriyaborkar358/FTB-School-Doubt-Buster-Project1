@@ -7,6 +7,7 @@ import SignUp from './../src/views/Signup/Signup'
 import Login from './../src/views/Login/Login'
 import StudentDetailsForm from './views/StudentForm/StudentForm';
 import Dashboard from './views/Dashboard/Dashboard';
+import Complaint from './views/Complaint/Complaint';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path:"/student-details",
     element:<StudentDetailsForm/>
+  },
+  {
+    path:"/complaint",
+    element:<Complaint/>
   },
   {
     path: "*",

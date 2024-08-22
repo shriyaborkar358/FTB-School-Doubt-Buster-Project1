@@ -1,10 +1,12 @@
 import React from "react";
 import './Dashboard.css';
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 const Dashboard = () => {
   return (
     <div className="dashboard-container">
-      <aside className="sidebar">
+        <Sidebar/>
+      {/* <aside className="sidebar">
         <div className="sidebar-header">
           <h2>School Dashboard</h2>
         </div>
@@ -15,7 +17,7 @@ const Dashboard = () => {
           <li>Profile</li>
           <li>Logout</li>
         </ul>
-      </aside>
+      </aside> */}
 
       <main className="main-content">
         <header className="header">
