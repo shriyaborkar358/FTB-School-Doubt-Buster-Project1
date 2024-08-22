@@ -3,64 +3,65 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import './Complaint.css'
 import GreetingCard from './../../components/dynamicGreet/greetCard'
+import Footer from './../../components/Footer/footer'
+
 function Complaint() {
   return (
     <div>
       <GreetingCard />
-      <h1 className='text-center' style={{marginTop: '100px'}}>Add Your Complaint here</h1>
-      <div className='complaint-container'>
-        <div className='complaintForm'style={{width: '80%', marginLeft: '-30%', marginRight: '-40%'}}>
-          <form className=' col-md-6 col-sm-12 registerForm' >
-            <div className='md-5'>
-              <label className="form-label">Full Name:</label>
-              <input
-                className="form-control"
-                type="text"
-              />
-              <label className='form-label'>Email:</label>
-              <input
-                type="email"
-                className="form-control"
-              />
-              <label className='form-label'>Mobile No.:</label>
-              <input
-                type="number"
-                className="form-control"
-              />
-              <label className='form-label'>Address:</label>
-              <textarea
-                rows={2}
-                cols={10}
-                className="form-control"
-              />
-              <label className='form-label'>Set Password:</label>
-              <input
-                type="password"
-                className="form-control"
-              />
-              <label className='form-label'>Role:</label>
-              <select
-                className="form-control"
+      <h1 className='text-center' style={{ marginTop: '90px', marginBottom: '-20px' , color: '#060347', fontWeight: '600'}}>
+        Add Your Complaint here 🖊️
+      </h1>
+      <div className='main-div-complaint' >
+        <div className='row'>
+          <div className='col-md-6 container'>
+            <label className='form-label'>Class :</label>
+            <select
+              className="form-control"
 
-              >
-                <option>select role</option>
-                <option value="student" selected >Student</option>
-                <option value="teacher">Teacher</option>
-                <option value="parent">Parent</option>
-                <option value="admin">Principle</option>
-              </select>
-              <button type="submit"
-                className='btn mt-5 btn-light position-absolute translate-middle start-50 '
-              >
-                Register
-              </button>
-            </div>
-          </form>
+            >
+              <option>select class</option>
+              <option value="1" selected >Class 1</option>
+              <option value="2">Class 2</option>
+              <option value="3">Class 3</option>
+              <option value="4">Class 4</option>
+              <option value="5">Class 5</option>
+            </select>
+          </div>
+          <div className='col-md-6 container'>
+            <label className='form-label'>Category :</label>
+            <select
+              className="form-control"
+
+            >
+              <option>select category</option>
+              <option value="teaching" selected >Teaching</option>
+              <option value="vehicle">Vehicle</option>
+              <option value="sports">Sports</option>
+              <option value="academics">Academics</option>
+              <option value="stationary">Stationary</option>
+              <option value="general">General</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <h2>hello world....we are here to help you. </h2>
+        <div className='row  container2'>
+          <label className='form-label'>Add your Description regarding the complaint :</label>
+          <textarea
+            rows={8}
+            cols={10}
+            className="form-control"
+          />
         </div>
+        <button type="submit"
+          className='btn mt-5 complaint-btn'>
+          Add Complaint
+        </button>
+
       </div>
+
+
+<Footer />
     </div>
   )
 }
