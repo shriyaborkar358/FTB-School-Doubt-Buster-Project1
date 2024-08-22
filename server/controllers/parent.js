@@ -40,5 +40,29 @@ const getAllParent = async (req, res) => {
     }
 };
 
+const getParentById = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const ParentId = await Parent.findById(id);
+        if (!ParentId) {
+            return res.status(404).json({
+                success: false,
+                message: "Parent not found",
+                data: null,
+            });
+        }
+        res.status(200).json({
+            success: true,
+            message: "Parent found",
+            data: ParentId,
+        });
+    } catch (e) {
+        res.status(500).json({
+            success: false,
+            message: e.message,
+        });
+    }
+};
 
-export { postParent, getAllParent};
+
+export { postParent, getAllParent, getParentById};
