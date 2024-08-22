@@ -59,6 +59,7 @@ app.get('/complaintsbyuser/:id', getComplaintsByUser)
 app.get('/complaintbyparent/:id',getComplaintsByParent)
 app.get('/complaintsbyclass/:id', getComplaintsByClass)
 
+
 app.post('/createClass',postClass)
 app.get('/fetchClasses/:id',getClassbyId)
 
