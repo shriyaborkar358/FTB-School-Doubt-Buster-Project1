@@ -3,7 +3,7 @@ import './Sidebar.css';
 
 const Sidebar = () => {
   return (
-    <aside className="sidebar">
+    <div className="sidebar">
     <div className="sidebar-header">
       <h2>School Dashboard</h2>
     </div>
@@ -14,7 +14,7 @@ const Sidebar = () => {
       <li>Profile</li>
       <li>Logout</li>
     </ul>
-  </aside>
+  </div>
   );
 };
 

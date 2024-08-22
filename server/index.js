@@ -17,6 +17,8 @@ import{ postComplaint,
     getComplaintsByParent,
     getComplaintsByClass} from "./controllers/complaint.js";  
 
+    import { postParent, getAllParent, getParentById, putParent, delParent} from "./controllers/parent.js";
+
 import { getClassbyId, postClass } from "./controllers/class.js";
 
 
@@ -62,6 +64,12 @@ app.get('/complaintsbyclass/:id', getComplaintsByClass)
 
 app.post('/createClass',postClass)
 app.get('/fetchClasses/:id',getClassbyId)
+
+app.post('/parent', postParent)
+app.get('/parents', getAllParent)
+app.get('/parents/:id', getParentById)
+app.put('/parents/:id', putParent)
+app.delete('/parents/:id',delParent)
 
 // app.post("/teacher",postTeacher);
 // app.get("/teachers",getTeacher);

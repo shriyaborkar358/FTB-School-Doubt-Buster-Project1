@@ -1,10 +1,12 @@
 import React from "react";
 import './Dashboard.css';
 import Sidebar from "../../components/Sidebar/Sidebar";
+import Navbar from './../../components/dynamicGreet/greetCard'
 
 const Dashboard = () => {
   return (
     <div className="dashboard-container">
+      <Navbar/>
         <Sidebar/>
       {/* <aside className="sidebar">
         <div className="sidebar-header">
