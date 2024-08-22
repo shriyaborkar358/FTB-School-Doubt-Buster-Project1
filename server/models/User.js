@@ -17,13 +17,17 @@ const userSchema = new Schema({
   address: {
     type: String,
   },
+  gender: {
+    type: String,
+    enum: ['male', 'female'],
+  },
   password: {
     type: String,
     required: true,
   },
   role: {
     type: String,
-    enum:['student','teacher','parent','admin'],
+    enum: ['student', 'teacher', 'parent', 'admin'],
     default: 'student',
   },
 }, {
