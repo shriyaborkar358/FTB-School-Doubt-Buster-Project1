@@ -52,6 +52,77 @@ const getComplaints = async (req, res) => {
     }
 }
 
+const getComplaintsByUser = async (req, res) => {
+    try {
+        const complaints = await Complaint.find({ user: req.params.id }).populate('user', 'fullName email -_id').select('-__v -updatedAt');
+        
+        if (!complaints || complaints.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No complaints found for this user"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "User Complaints fetched successfully",
+            data: complaints
+        });
+    }
+    catch (error) {
+        res.status(404).json({
+            success: false,
+            message: error.message
+        });
+    }
+}
+
+const getComplaintsByParent = async (req, res) => {
+    try {
+        const complaints = await Complaint.find({ parent: req.params.id }).populate('user', 'fullName email -_id').select('-__v -updatedAt');
+
+        if (!complaints || complaints.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No complaints found for this parent"
+            });
+        }
+        res.status(200).json({
+            success: true,
+            message: "Parent Complaints fetched successfully",
+            data: complaints
+        });
+    } catch (error) {
+        res.status(404).json({
+            success: false,
+            message: error.message
+        });
+    }
+}
+
+const getComplaintsByClass = async (req, res) => {
+    try {
+        const complaints = await Complaint.find({ class: req.params.id }).populate('user', 'fullName email -_id').select('-__v -updatedAt -class');
+        if (!complaints || complaints.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No complaints found for this class"
+            });
+        }
+        res.status(200).json({
+            success: true,
+            message: "Class Complaints fetched successfully",
+            data: complaints
+        });
+    }
+    catch (error) {
+        res.status(404).json({
+            success: false,
+            message: error.message
+        });
+    }
+}
+
 const getComplaintById = async (req, res) => {
     try {
         const complaint = await Complaint.findById(req.params.id);
@@ -103,5 +174,7 @@ const deleteComplaint = async (req, res) => {
         })
     }
 }
-export { postComplaint ,getComplaints, getComplaintById, updateComplaint, deleteComplaint}
+export { postComplaint ,getComplaints, getComplaintById, updateComplaint, deleteComplaint, getComplaintsByUser, getComplaintsByParent, getComplaintsByClass}
+
+
 
