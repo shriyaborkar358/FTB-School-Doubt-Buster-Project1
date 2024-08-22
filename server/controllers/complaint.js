@@ -93,14 +93,35 @@ const getComplaintsByParent = async (req, res) => {
             data: complaints
         });
     } catch (error) {
-        res.status(500).json({
+        res.status(404).json({
             success: false,
-            message: "Error fetching complaints",
-            error: error.message
+            message: error.message
         });
     }
 }
 
+const getComplaintsByClass = async (req, res) => {
+    try {
+        const complaints = await Complaint.find({ class: req.params.id }).populate('user', 'fullName email -_id').select('-__v -updatedAt -class');
+        if (!complaints || complaints.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No complaints found for this class"
+            });
+        }
+        res.status(200).json({
+            success: true,
+            message: "Class Complaints fetched successfully",
+            data: complaints
+        });
+    }
+    catch (error) {
+        res.status(404).json({
+            success: false,
+            message: error.message
+        });
+    }
+}
 
 const getComplaintById = async (req, res) => {
     try {
@@ -153,7 +174,7 @@ const deleteComplaint = async (req, res) => {
         })
     }
 }
-export { postComplaint ,getComplaints, getComplaintById, updateComplaint, deleteComplaint, getComplaintsByUser, getComplaintsByParent}
+export { postComplaint ,getComplaints, getComplaintById, updateComplaint, deleteComplaint, getComplaintsByUser, getComplaintsByParent, getComplaintsByClass}
 
 
 
