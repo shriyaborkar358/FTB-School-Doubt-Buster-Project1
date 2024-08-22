@@ -46,7 +46,7 @@ app.get('/complaints',getComplaints)
 app.put('/updatecomplaint/:id', updateComplaint)
 app.delete('/deletecomplaint/:id', deleteComplaint)
 
-app.post("/teacher",postTeacher);
+// app.post("/teacher",postTeacher);
 // app.get("/teachers",getTeacher);
 // app.get("/teacher/:id",getTeacherById);
 // app.put("/teacher/:id", putTeacher);
