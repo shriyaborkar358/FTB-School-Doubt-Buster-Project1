@@ -9,7 +9,6 @@ dotenv.config();
 import {createStudent, getAllStudents, getStudentById} from "./controllers/student.js";
 import { postComplaint,getComplaintById,getComplaints,updateComplaint ,deleteComplaint} from "./controllers/complaint.js";  
 
-import { postTeacher } from "./controllers/teacher.js";
 
 const app = express()
 app.use(express.json())
