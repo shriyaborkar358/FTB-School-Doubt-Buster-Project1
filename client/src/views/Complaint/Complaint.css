@@ -1,0 +1,8 @@
+.complaint-container{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-around;
+}
+.complaintForm{
+    margin-left: -250px;
+}
