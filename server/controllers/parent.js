@@ -11,19 +11,34 @@ const postParent = async (req, res) => {
     try {
         const savedParent = await parent.save();
 
-        res.json({
+        res.status(201).json({
             success: true,
-            message: "Parent added successfully",
-            data: savedParent
+            message: "Parent created successfully",
+            data: savedParent,
         });
-    }
-    catch (e) {
-        res.json({
+    } catch (e) {
+        res.status(404).json({
             success: false,
             message: e.message,
-            data: null
-        })
+        });
     }
 };
 
-    export { postParent}
+const getAllParent = async (req, res) => {
+    try {
+        const allParents = await Parent.find().sort({ createdAt: -1 });
+        return res.json({
+            success: true,
+            message: "All Parent fetched successfully",
+            data: allParents,
+        });
+    } catch (e) {
+        return res.json({
+            success: false,
+            message: "Parents not found",
+        });
+    }
+};
+
+
+export { postParent, getAllParent};
