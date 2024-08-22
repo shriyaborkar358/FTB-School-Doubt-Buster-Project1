@@ -5,6 +5,7 @@ import Home from './../src/views/Home/Home'
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import SignUp from './../src/views/Signup/Signup'
 import Login from './../src/views/Login/Login'
+import StudentDetailsForm from './views/StudentForm/StudentForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   //   path: "/about",
   //   element: <AboutUs/>
   // },
+  {
+    path:"/student-details",
+    element:<StudentDetailsForm/>
+  },
   {
     path: "*",
     element: <h1>404 Page not found</h1>

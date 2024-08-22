@@ -1,3 +1,4 @@
+// controllers are created for Student.js
 import Student from "./../models/Student.js";
 const createStudent = async (req, res) => {
     const { user, rollNo, class: classId, div, teacher, parent } = req.body;
@@ -118,7 +119,4 @@ const deleteStudent = async (req, res) => {
         data: null
     })
 }
-
-
-
 export { createStudent, getAllStudents, getStudentById, putUpdateStudent, deleteStudent }
